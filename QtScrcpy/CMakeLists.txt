@@ -388,7 +388,11 @@ endif()
 # common deps
 #
 
-add_subdirectory(QtScrcpyCore)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/QtScrcpyCore/CMakeLists.txt")
+    add_subdirectory(QtScrcpyCore)
+else()
+    message(FATAL_ERROR "[${PROJECT_NAME}] ERROR: QtScrcpyCore directory not found at ${CMAKE_CURRENT_SOURCE_DIR}/QtScrcpyCore. Ensure the directory exists or the submodule is initialized. If using CI, enable submodules and fetch full history in actions/checkout.")
+endif()
 
 # Qt
 target_link_libraries(${PROJECT_NAME} PRIVATE
