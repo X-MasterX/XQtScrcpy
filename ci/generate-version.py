@@ -7,7 +7,7 @@ if __name__ == '__main__':
     p.close()
 
     p = os.popen('git describe --tags ' + commit)
-    tag = p.read()
+    tag = p.read().strip() or 'v0.0.0'
     p.close()
 
     # print('get tag:', tag)
