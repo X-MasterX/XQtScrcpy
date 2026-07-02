@@ -1,18 +1,12 @@
 name: Windows
 # 触发规则详解 https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#on
-on: 
+on:
   push:
-    paths:
-      - 'QtScrcpy/**'
-      - '!QtScrcpy/res/**'
-      - '.github/workflows/windows.yml'
-      - 'ci/win**'
+    branches:
+      - main
   pull_request:
-    paths:
-      - 'QtScrcpy/**'
-      - '!QtScrcpy/res/**'
-      - '.github/workflows/windows.yml'
-      - 'ci/win**'
+    branches:
+      - main
 jobs:
   build:
     name: Build
